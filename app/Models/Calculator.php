@@ -10,6 +10,6 @@ class Calculator extends Model
         'nilai1',
         'simbol',
         'nilai2',
-        'hasil'
+        'hasil',
     ];
 }
