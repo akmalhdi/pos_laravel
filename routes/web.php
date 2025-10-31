@@ -6,7 +6,17 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', [\App\Http\Controllers\BelajarController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\LoginController::class, 'index']);
+Route::get('login', [\App\Http\Controllers\LoginController::class, 'index'])->name('login');
+
+Route::post('action-login', [\App\Http\Controllers\LoginController::class, 'actionLogin'])->name('action-login');
+Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth'])->group(function(){
+    Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
+});
+
+
 Route::get('belajar/tambah', [\App\Http\Controllers\BelajarController::class, 'tambah'])->name('belajar.tambah');
 Route::post('storeTambah', [\App\Http\Controllers\BelajarController::class, 'storeTambah'])->name('storeTambah');
 
@@ -21,6 +31,7 @@ Route::post('storeKali', [\App\Http\Controllers\BelajarController::class, 'store
 
 Route::get('calculator', [\App\Http\Controllers\CalculatorController::class, 'create']);
 Route::post('calculator/store', [\App\Http\Controllers\CalculatorController::class, 'store'])->name('calculator.store');
+
 
 
 // Route::post('storeKali', [\App\Http\Controllers\BelajarController::class, 'storeKali'])->name('storeKali');
