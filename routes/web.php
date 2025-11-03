@@ -14,6 +14,8 @@ Route::get('logout', [\App\Http\Controllers\LoginController::class, 'logout'])->
 
 Route::middleware(['auth'])->group(function(){
     Route::resource('dashboard', \App\Http\Controllers\DashboardController::class);
+    Route::resource('user', \App\Http\Controllers\UserController::class);
+    Route::resource('category', \App\Http\Controllers\CategoryController::class);
 });
 
 
