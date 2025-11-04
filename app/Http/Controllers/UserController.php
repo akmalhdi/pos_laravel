@@ -13,8 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::orderBy('id', 'DESC')->get();
-        return view('user.index', compact("users"));
+        $title = "Data Users";
+        $datas = User::orderBy('id', 'DESC')->get();
+        return view('user.index', compact("datas", "title"));
     }
 
     /**
@@ -22,7 +23,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $title = "Add Users";
+        return view('user.create', compact("title"));
     }
 
     /**
@@ -30,6 +32,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        alert()->success('Success', 'Insert Success');
         try {
             $request->validate([
                 'email' => 'required|email|unique:users,email',
@@ -44,7 +47,7 @@ class UserController extends Controller
                     'password' => Hash::make($request->password)
                 ]
                 );
-                return redirect()->route('user.index');
+                return redirect()->to('user');
         } catch (\Illuminate\Validation\ValidationException $th) {
             return redirect()->back()->withErrors($th->validator)->withInput();
         }
@@ -63,9 +66,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-
+        $title = "Edit User";
         $user = User::find($id);
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user', 'title'));
     }
 
     /**
@@ -73,6 +76,7 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        alert()->success('Success', 'Update Success');
         $user = \App\Models\User::find($id);
         try {
             $request->validate([
@@ -102,8 +106,9 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        $user=User::find($id);
-        $user->delete();
+        $data=User::find($id);
+        $data->delete();
+        alert()->success('Success', 'Delete Success');
         return redirect()->route("user.index");
     }
 }

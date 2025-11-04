@@ -12,19 +12,15 @@
         </ul>
     @endif
 
-
-    <h2 class="title mt-2">
-        Add User
-    </h2>
     <form action="{{route("user.store")}}" method="post" >
             @csrf
             <div class="my-3">
-                <label for="" class="form-label">Username</label>
-                <input type="text" name="name" id="" class="form-control" >
+                <label for="" class="form-label">Name</label>
+                <input type="text" name="name" id="" class="form-control" value="{{old('category_name')}}">
             </div>
             <div class="mb-3">
                 <label for="" class="form-label">Email</label>
-                <input type="email" name="email" id="" class="form-control" >
+                <input type="email" name="email" id="" class="form-control" value="{{old('category_name')}}">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             <div class="mb-3">
@@ -32,8 +28,8 @@
                 <input type="password" name="password" id="" class="form-control" >
             </div>
             <div class="d-flex justify-content-start my-2">
-                <button type="submit" class="btn btn-primary btn-sm me-3"><i class="bi bi-check-lg"></i> Submit</button>
-                <a href="{{route('user.index')}}" class="btn btn-primary btn-sm"><i class="bi bi-backspace"></i> Back</a>
+                <button type="submit" class="btn btn-primary btn-sm me-3"><i class="bi bi-check-lg"></i> Save</button>
+                <a href="{{route('user.index')}}" class="btn btn-primary btn-sm"><i class="bi bi-arrow-counterclockwise"></i> Back</a>
             </div>
         </form>
 

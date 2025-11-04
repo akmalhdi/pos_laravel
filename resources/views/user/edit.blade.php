@@ -12,10 +12,6 @@
         </ul>
     @endif
 
-    <h2 class="title mt-2">
-        Edit User
-    </h2>
-
     <form action="{{route('user.update', $user->id)}}" method="post" >
         @csrf
         @method('PUT')
@@ -34,7 +30,7 @@
         </div>
         <div class="d-flex justify-content-start my-2">
             <button type="submit" class="btn btn-primary btn-sm me-3"><i class="bi bi-pencil"></i> Update</button>
-            <a href="{{route('user.index')}}" class="btn btn-primary btn-sm"><i class="bi bi-backspace"></i> Back</a>
+            <a href="{{route('user.index')}}" class="btn btn-primary btn-sm"><i class="bi bi-arrow-counterclockwise"></i> Back</a>
         </div>
         </form>
 
