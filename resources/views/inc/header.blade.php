@@ -3,7 +3,7 @@
     <div class="d-flex align-items-center justify-content-between">
         <a href="{{ route('dashboard.index') }}" class="logo d-flex align-items-center">
             <img src="assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">NiceAdmin</span>
+            <span class="d-none d-lg-block">Barista PPKD JP</span>
         </a>
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -175,7 +175,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                        <a class="dropdown-item d-flex align-items-center" href="{{route('profile.index')}}">
                             <i class="bi bi-person"></i>
                             <span>My Profile</span>
                         </a>

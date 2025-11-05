@@ -39,7 +39,7 @@
             </a>
             <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
+                    <a href="{{route('product.index')}}">
                         <i class="bi bi-circle"></i><span>Master Product</span>
                     </a>
                 </li>
@@ -64,7 +64,7 @@
         <li class="nav-heading">Pages</li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="users-profile.html">
+            <a class="nav-link collapsed" href="{{route("profile.index")}}">
                 <i class="bi bi-person"></i>
                 <span>Profile</span>
             </a>
